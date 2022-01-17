@@ -47,6 +47,8 @@ particlesJS.load('banner', './scripts/particlesjs.json', function() {
         root.style.setProperty("--base1", "#f5f5f5")
         root.style.setProperty("--base2", "#272727")
         root.style.setProperty("--opp", "#1b1b1b")
+        root.style.setProperty("--orange", "#fd7a4b")
+        root.style.setProperty("--blue", "#78e9e9")
         document.querySelector("#moon").style.opacity = "0%"
         document.querySelector("#sun").style.opacity = "100%"
       }
@@ -55,6 +57,8 @@ particlesJS.load('banner', './scripts/particlesjs.json', function() {
         root.style.setProperty("--base1", "#1b1b1b")
         root.style.setProperty("--base2", "#272727")
         root.style.setProperty("--opp", "#f5f5f5")
+        root.style.setProperty("--orange", "#ff632a")
+        root.style.setProperty("--blue", "#55e4e4")
         document.querySelector("#moon").style.opacity = "100%"
         document.querySelector("#sun").style.opacity = "0%"
       }
@@ -63,3 +67,41 @@ particlesJS.load('banner', './scripts/particlesjs.json', function() {
 document.querySelectorAll(".logo")[0].addEventListener('click', () => {
     window.scrollTo(top)
 })
+
+for(let i = 0; i < 5; i++)
+{
+    document.querySelectorAll(".image")[i].addEventListener('click', function(e){
+        let template = document.querySelector("template")
+        let clone = template.content.cloneNode(true)
+        let imgNum = parseInt(e.currentTarget.id[e.currentTarget.id.length-1])
+        
+        document.querySelector("body").append(clone)
+        let preview = document.querySelector(".preview")
+        switch (imgNum) {
+            case 1:
+                preview.setAttribute("src", "./images/gallery/pexels-wendy-wei-2753432-min.jpg")
+                preview.alt = "Piękne zdjęcie przedtawiające pasmo komet PJKP-21"
+                break;
+            case 2:
+                preview.src = "./images/gallery/pexels-tobias-bjørkli-1938348-min.jpg"
+                preview.alt = "Zdjęcie przedstawiające wspaniale uchwyconą zorze polarną"
+                break;
+            case 3:
+                preview.src = "./images/gallery/pexels-pixabay-33684-min.jpg"
+                preview.alt = 'Astronauta Mike Hock robiący sobie "selfie"'
+                break;
+            case 4:
+                preview.src = "./images/gallery/pexels-nandkumar-patel-3542314-min.jpg"
+                preview.alt = "Ekstremalnie przybliżona gwiazda Mogus-006C"
+                break;
+            case 5:
+                preview.src = "./images/gallery/pexels-mikhail-nilov-7672252-min.jpg"
+                preview.alt = "Astronautka Julie Peltz przygotowana do opuszczenia naszej atmosfery"
+                break;
+            default:
+                break;
+        }
+        preview.addEventListener('click', (e) => { document.querySelector(".preview-wrapper").remove() })
+        // e.currentTarget.style.backgroundImage = "url(./images/gallery/masked_wolf.png)"
+    })
+}
