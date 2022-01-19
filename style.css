@@ -274,7 +274,7 @@ label[for="burger"] div::after
     text-align: center;
     backdrop-filter: blur(2px);
 }
-.banner-wrapper section:last-child h1
+.banner-wrapper section:last-child h2
 {
     font-size: 3rem;
     color: #55e4e4;
@@ -417,7 +417,7 @@ main > *:not(footer)
 {
     transform: scaleX(1);
 }
-.articles-inner :not(div) h1
+.articles-inner :not(div) h2
 {
     color: var(--blue);
 }
@@ -718,7 +718,7 @@ div:last-child > .image:last-child:focus,
     transform: scale(1.1) translateY(-2rem);
     box-shadow: 0px 0px 25px 0px rgba(27, 27, 27, 0.8);
 }
-.offers div h1 
+.offers div h2 
 {
     color: var(--orange);
 }
@@ -854,7 +854,7 @@ div:last-child > .image:last-child:focus,
     color: var(--opp);
     font-weight: lighter;
 }
-.contact-headline h1 
+.contact-headline h2 
 {
     color: var(--orange);
     font-weight: bolder;
@@ -1052,7 +1052,7 @@ footer
         width: 60%;
         margin: 0 auto;
     }
-    #articles-container article h1
+    #articles-container article h2
     {
         font-size: 1.2rem;
     }
