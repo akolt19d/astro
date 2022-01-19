@@ -1,4 +1,6 @@
 const initStyle = document.querySelector("nav").style
+const animation = document.querySelectorAll(".animation")
+const animation2 = document.querySelectorAll(".animation2")
 
 window.addEventListener('scroll', () => {
     if(window.scrollY > window.innerHeight && window.innerWidth > 800)
@@ -105,3 +107,59 @@ for(let i = 0; i < 5; i++)
         // e.currentTarget.style.backgroundImage = "url(./images/gallery/masked_wolf.png)"
     })
 }
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        e.target.classList.toggle("play", e.isIntersecting)
+        if(e.isIntersecting)
+        {
+            observer.unobserve(e.target)
+        }
+    })
+}, {
+    threshold: 0.6,
+})
+
+const observer2 = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        e.target.classList.toggle("play2", e.isIntersecting)
+        if(e.isIntersecting)
+        {
+            observer2.unobserve(e.target)
+        }
+    })
+}, {
+    threshold: 0.8,
+})
+
+animation.forEach(e => {
+    observer.observe(e)
+})
+
+animation2.forEach(e => {
+    observer2.observe(e)
+})
+
+function verifyName(string)
+{
+    let temp = string.slice(1, string.length)
+    let char = string[0]
+    temp = temp.toLowerCase()
+    char = char.toUpperCase()
+
+    return char+temp;
+}
+
+document.querySelector("form").addEventListener('submit', (e) => {
+    e.preventDefault()
+    let inp = document.querySelectorAll(".inputs")
+
+    let i1 = inp[0].value;
+    let i2 = inp[1].value;
+
+    let i1new =  verifyName(i1)
+    let i2new = verifyName(i2)
+
+    inp[0].value = i1new
+    inp[1].value = i2new
+})
